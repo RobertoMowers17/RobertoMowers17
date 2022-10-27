@@ -48,7 +48,7 @@ def productos():
         port="3306",
         user="root",
         password="example",
-        database="store"
+        database="examen"
         )
     mydb.set_charset_collation('latin1')
     mycursor = mydb.cursor()
@@ -74,12 +74,12 @@ def facturas():
         port="3306",
         user="root",
         password="example",
-        database="store"
+        database="examen"
         )
     mydb.set_charset_collation('latin1')
     mycursor = mydb.cursor()
     if name is None:
-        mycursor.execute("SELECT * FROM facturas")
+        mycursor.execute("SELECT * FROM factura")
         myresult = mycursor.fetchall()
         registro_json = []
         registro = {}
@@ -100,7 +100,7 @@ def facturas():
         return jsonify(registro_json)
 
 @app.get("/mysql")
-def get_mysql():
+def get_mysql_prof():
     mydb = mysql.connector.connect(
         #host="mysql-db-1",
         host="db",
